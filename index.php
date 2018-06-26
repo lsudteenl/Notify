@@ -1,5 +1,5 @@
-$Token = $_GET["Token"];
-$message = $_GET["message "];
+$Token = $_GET["xsWJYLzhjMRb5CF7oIwueMPOJdS8hi5c4cI7pIgY2t9"];
+$message = $_GET["Test"];
 
 line_notify($Token, $message);
 
