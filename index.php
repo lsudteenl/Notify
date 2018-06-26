@@ -1,12 +1,12 @@
-$Token = $_GET["xsWJYLzhjMRb5CF7oIwueMPOJdS8hi5c4cI7pIgY2t9"];
-$message = $_GET["Test"];
+$Token = $_GET["Token"];
+$message = $_GET["message"];
 
 line_notify($Token, $message);
 
 fucntion line_notify($Token, $message)
 {
-        $lineapi = $Token; // ใส่ token key ที่ได้มา
-	$mms =  trim($message); // ข้อความที่ต้องการส่ง
+        $lineapi = xsWJYLzhjMRb5CF7oIwueMPOJdS8hi5c4cI7pIgY2t9; // ใส่ token key ที่ได้มา
+	$mms =  trim(xsWJYLzhjMRb5CF7oIwueMPOJdS8hi5c4cI7pIgY2t9); // ข้อความที่ต้องการส่ง
 	date_default_timezone_set("Asia/Bangkok");
 	$chOne = curl_init(); 
 	curl_setopt( $chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify"); 
