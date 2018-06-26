@@ -2,8 +2,8 @@
 header('Content-Type: text/html; charset=utf-8');
 
 define('LINE_API',"https://notify-api.line.me/api/notify");
-$token = "uwUnnXn7E9svH04B8y4yoL22TMBf5RAGQIaFUX247rV"; //ใส่Token ที่copy เอาไว้
-$str = (isset($_GET['test'])?$_GET['test']:''); //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
+$token = "IhgCHkiRZrctiedZoEfSGgT6IA4wtRxjQtnES9Zg4gp"; //ใส่Token ที่copy เอาไว้
+$str = (isset($_GET['Open New Ticket !!!'])?$_GET['Open New Ticket !!!']:''); //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
 $stickerPkg = (isset($_GET['pkg'])?$_GET['pkg']:''); //stickerPackageId
 $stickerId = (isset($_GET['id'])?$_GET['id']:''); //stickerId
  
