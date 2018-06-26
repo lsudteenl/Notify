@@ -1,24 +1,25 @@
-define(‘LINE_API’,”https://notify-api.line.me/api/notify");
- 
-$token = “xsWJYLzhjMRb5CF7oIwueMPOJdS8hi5c4cI7pIgY2t9”; //ใส่Token ที่copy เอาไว้
-$str = “Hello”; //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
- 
-$res = notify_message($str,$token);
-print_r($res);
-function notify_message($message,$token){
- $queryData = array(‘message’ => $message);
- $queryData = http_build_query($queryData,’’,’&’);
- $headerOptions = array( 
-         ‘http’=>array(
-            ‘method’=>’POST’,
-            ‘header’=> “Content-Type: application/x-www-form-urlencoded\r\n”
-                      .”Authorization: Bearer “.$token.”\r\n”
-                      .”Content-Length: “.strlen($queryData).”\r\n”,
-            ‘content’ => $queryData
-         ),
- );
- $context = stream_context_create($headerOptions);
- $result = file_get_contents(LINE_API,FALSE,$context);
- $res = json_decode($result);
- return $res;
+<?php
+function send_line_notify($message, $token)
+{
+  $ch = curl_init();
+  curl_setopt( $ch, CURLOPT_URL, "https://notify-api.line.me/api/notify");
+  curl_setopt( $ch, CURLOPT_SSL_VERIFYHOST, 0);
+  curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, 0);
+  curl_setopt( $ch, CURLOPT_POST, 1);
+  curl_setopt( $ch, CURLOPT_POSTFIELDS, "message=$message");
+  curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
+  $headers = array( "Content-type: application/x-www-form-urlencoded", "Authorization: Bearer $token", );
+  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+  curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+  $result = curl_exec( $ch );
+  curl_close( $ch );
+
+  return $result;
 }
+
+$message = 'Ticket opened';
+$token = 'xsWJYLzhjMRb5CF7oIwueMPOJdS8hi5c4cI7pIgY2t9';
+
+echo send_line_notify($message, $token);
+
+?>
