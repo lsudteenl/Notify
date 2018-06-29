@@ -18,7 +18,7 @@ function send_line_notify($message, $token)
 }
 
 $message = 'Ticket opened';
-$token = 'xsWJYLzhjMRb5CF7oIwueMPOJdS8hi5c4cI7pIgY2t9';
+$token = '9jaRJoRdl6EM871efmyRS8sp2lKzgGoNcc7DWzQ6bcl';
 
 echo send_line_notify($message, $token);
 
