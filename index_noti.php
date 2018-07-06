@@ -17,7 +17,7 @@ function send_line_notify($message, $token)
   return $result;
 }
 
-$message = 'Ticket opened';
+$message = 'IT/DCKK/V10 ไม่สามารถ LOG IN เข้าระบบได้เลยครับ';
 $token = 'JUUaY5RKdu3266rnNCGH084kC4KXzRMkyU2ypQrWMXq';
 
 echo send_line_notify($message, $token);
